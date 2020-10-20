@@ -9,8 +9,7 @@ let VideoSchema = new Schema(
         },
         slug: {
             type: String
-        }     
-        
+        }
 
     },
     { collection: "VIDEO" }

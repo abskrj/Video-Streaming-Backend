@@ -1,10 +1,13 @@
+const { Str } = require("@supercharge/strings/dist/str");
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
 let UserSchema = new Schema(
     {
-        name: String,
+        name: {
+            type: String,
+        },
         userId: {
             type: String,
             unique: true,
@@ -18,6 +21,10 @@ let UserSchema = new Schema(
         password: {
             type: String,
             required: true
+        },
+        profileSlug: {
+            type: String,
+            unique: true
         },
         isVerified: {
             type: Boolean,

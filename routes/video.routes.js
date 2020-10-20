@@ -16,5 +16,8 @@ module.exports = function (app) {
         next();
     });
 
-    app.post("/api/video/upload", [authJwt.verifyToken, videoMiddlewares.addVideoId], controller.registerVideo);
+    app.post("/api/video/upload", [authJwt.verifyToken, videoMiddlewares.addVideoId], controller.videoUpload);
+
+    app.post("/api/video/register", [authJwt.verifyToken], controller.videoRegister);
 };
+

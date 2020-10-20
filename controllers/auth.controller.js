@@ -1,22 +1,25 @@
 const db = require("../models");
 const User = db.user;
-const Role = db.role;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 let gravatar = require("gravatar-api");
 const StrGen = require("@supercharge/strings");
+const slug = require("slug");
 
 exports.signup = (req, res) => {
 
     let avtarUrl = gravatar.imageUrl({ email: req.body.email, secure: true });
+
+    profileSlug = slug(StrGen.random(8), {lower: false});
 
     const user = new User({
         userId: StrGen.random(6),
         username: req.body.username,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 8),
-        avtarUrl: `${avtarUrl}?default=wavatar`
+        avtarUrl: `${avtarUrl}?default=wavatar`,
+        profileSlug: profileSlug
     });
 
     user.save((err, user) => {

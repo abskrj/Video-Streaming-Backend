@@ -19,7 +19,7 @@ let VideoSchema = new Schema(
                 type:String
             }
         ],
-        category: {
+        categoryId: {
             type: Schema.Types.ObjectId,
             ref: "CATEGORY"
         },
@@ -31,9 +31,6 @@ let VideoSchema = new Schema(
         videoUrl: {
             type: String
         },
-        createdAt: {
-            type: Date
-        },
         isActive: {
             type: Boolean,
             default: true
@@ -42,18 +39,21 @@ let VideoSchema = new Schema(
             type: String,
         },
         likes: {
-            type: Number
+            type: Number,
+            default: 0
         },
         dislikes: {
-            type: Number
+            type: Number,
+            default: 0
         },
         views: {
-            type: Number
+            type: Number,
+            default: 0
         }        
         
 
     },
-    { collection: "VIDEO" }
+    { collection: "VIDEO", timestamps: true }
 );
 
 module.exports = mongoose.model("VIDEO", VideoSchema);

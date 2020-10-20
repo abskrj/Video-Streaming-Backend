@@ -5,6 +5,10 @@ const util = require('util');
 const { spawn } = require('child_process');
 const s3FolderUpload = require('s3-folder-upload');
 const fsExtra = require('fs-extra');
+var slug = require('slug');
+
+const db = require("../models");
+const Video = db.video;
 
 
 const credentials = {
@@ -14,7 +18,7 @@ const credentials = {
     "bucket": process.env.BUCKET_NAME
 }
 
-exports.registerVideo = ((req, res) => {
+exports.videoUpload = ((req, res) => {
     const form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
         fileProperty = files.video.type.split('/');
@@ -30,9 +34,12 @@ exports.registerVideo = ((req, res) => {
             const fs_writeFile = util.promisify(fs.writeFile)
 
             fs_writeFile(newPath, rawData, function (err) {
-                if (err) console.log(err);
+                if (err) {
+                    console.log(err);
+                    res.status(500).send({ message: err, videoId: req.videoId});
+                }
                 else {
-                    res.send({ message: "Successfully uploaded" });
+                    res.send({ message: "Successfully uploaded", videoId: req.videoId});
                 }
             })
                 .then((value) => {
@@ -83,8 +90,39 @@ exports.registerVideo = ((req, res) => {
                         res.send({ message: "Something went wrong" });
                     }
                 });
-                res.send({message: "Video Uploaded Successfully"});
+            res.send({ message: "Video Uploaded Successfully" });
         }
     })
+
+});
+
+
+exports.videoRegister = ((req, res) => {
+    const { title, description, videoId, tags, categoryId, userId } = req.body;
+
+    tags = tags.trim();
+    tags = tags.split(',');
+
+    const video = new Video({
+        videoId,
+        title,
+        description,
+        tags,
+        category: categoryId,
+        owner: userId,
+        videoUrl: `https://cdn-firestream.s3.ap-south-1.amazonaws.com/videos/${videoId}/${videoId}.mpd`,
+        thumbnailUrl: `https://cdn-firestream.s3.ap-south-1.amazonaws.com/videos/${videoId}/${videoId}.jpg`,        
+    });
+    
+    video.save((err, video) => {
+        if (err) {
+            res.status(500).send({ message: err });
+            return;
+        }
+
+        else {
+            res.send({ message: "Video was registered successfully!" });
+        }
+    });
 
 });
