@@ -50,6 +50,6 @@ if [ ! -d "${f}" ]; then #if directory does not exist, convert
       rm "${SAVEDIR}/${f}_3000.mp4" "${SAVEDIR}/${f}_1500.mp4" "${SAVEDIR}/${f}_800.mp4"
   fi
   # create a jpg for poster. Use imagemagick or just save the frame directly from ffmpeg is you don't have cjpeg installed.
-ffmpeg -ss 00:00:00 -i "${fe}" -vframes 1 "${SAVEDIR}/${f}.jpg"
+ffmpeg -ss 00:00:01 -i "${fe}" -vframes 1 "${SAVEDIR}/${f}.jpg"
 
 fi

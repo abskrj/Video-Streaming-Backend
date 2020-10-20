@@ -75,6 +75,7 @@ isStaff = (req, res, next) => {
 const authJwt = {
     verifyToken,
     isAdmin,
-    isModerator
+    isModerator,
+    isStaff
 };
 module.exports = authJwt;
