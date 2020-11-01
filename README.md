@@ -3,11 +3,11 @@
 ### Getting Started
 
 ```bash
-git clone 
+git clone https://github.com/abhishekraj272/Video-Streaming-Backend
 
-cd 
+cd Video-Streaming-Backend
 
-npm install
+npm install 
 
 npm dev
 
@@ -16,3 +16,5 @@ npm dev
 npm start
 
 ```
+
+##### Please don't fork before submission of this project.
