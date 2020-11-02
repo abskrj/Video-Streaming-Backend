@@ -10,7 +10,7 @@ module.exports = function (app) {
         next();
     });
 
-    app.get('/api/auth/jwt/verify', [authJwt], controller.tokenVerified)
+    app.get('/api/auth/jwt/verify', [authJwt.verifyToken], controller.tokenVerified)
 
     app.post("/api/auth/signup", [verifyRegister], controller.signup);
 

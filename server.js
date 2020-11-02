@@ -13,8 +13,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger("dev"));
 
-console.log(__dirname);
-
 const mongoConnectOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
