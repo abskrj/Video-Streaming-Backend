@@ -49,8 +49,10 @@ let VideoSchema = new Schema(
         views: {
             type: Number,
             default: 0
-        }        
-        
+        },
+        score: {
+            type: Number
+        }      
 
     },
     { collection: "VIDEO", timestamps: true }

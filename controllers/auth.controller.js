@@ -75,3 +75,7 @@ exports.signin = (req, res) => {
             });
         });
 };
+
+exports.tokenVerified = (req, res) => {
+    res.send({message: 'Token Verified'});
+}

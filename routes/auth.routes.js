@@ -1,4 +1,4 @@
-const { verifyRegister } = require("../middlewares");
+const { verifyRegister, authJwt } = require("../middlewares");
 const controller = require("../controllers/auth.controller");
 
 module.exports = function (app) {
@@ -9,6 +9,8 @@ module.exports = function (app) {
         );
         next();
     });
+
+    app.get('/api/auth/jwt/verify', [authJwt], controller.tokenVerified)
 
     app.post("/api/auth/signup", [verifyRegister], controller.signup);
 
