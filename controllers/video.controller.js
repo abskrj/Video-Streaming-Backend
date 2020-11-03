@@ -24,7 +24,7 @@ exports.videoUpload = ((req, res) => {
         fileProperty = files.video.type.split('/');
 
         if (fileProperty[0] != 'video') {
-            res.send({ message: "Not a supported File Format, Upload Video Only" });
+            res.status(404).send({ message: "Not a supported File Format, Upload Video Only" });
         }
         else {
             var oldPath = files.video.path;
@@ -37,9 +37,6 @@ exports.videoUpload = ((req, res) => {
                 if (err) {
                     console.log(err);
                     res.status(500).send({ message: err, videoId: req.videoId});
-                }
-                else {
-                    res.send({ message: "Successfully uploaded", videoId: req.videoId});
                 }
             })
                 .then((value) => {
@@ -89,7 +86,7 @@ exports.videoUpload = ((req, res) => {
                         res.send({ message: "Something went wrong" });
                     }
                 });
-            res.send({ message: "Video Uploaded Successfully" });
+            res.send({ message: "Video Uploaded Successfully", "videoId": req.videoId });
         }
     })
 

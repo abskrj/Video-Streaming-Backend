@@ -63,7 +63,7 @@ exports.signin = (req, res) => {
 
 
             var token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
-                expiresIn: 86400, // 24 hours
+                expiresIn: 604800, // 24 hours
             });
 
             res.status(200).send({
