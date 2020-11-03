@@ -94,17 +94,17 @@ exports.videoUpload = ((req, res) => {
 
 
 exports.videoRegister = ((req, res) => {
-    const { title, description, videoId, tags, categoryId, userId } = req.body;
+    const { title, description, videoId, tags, category, userId } = req.body;
 
-    tags = tags.split(" ").join("");
-    tags = tags.split(',');
+    let sepTags = tags.split(" ").join("");
+    sepTags = tags.split(',');
 
     const video = new Video({
-        videoId,
-        title,
-        description,
-        tags,
-        category: categoryId,
+        videoId: videoId,
+        title: title,
+        description: description,
+        tags: sepTags,
+        category: category,
         owner: userId,
         videoUrl: `https://cdn-firestream.s3.ap-south-1.amazonaws.com/videos/${videoId}/${videoId}.mpd`,
         thumbnailUrl: `https://cdn-firestream.s3.ap-south-1.amazonaws.com/videos/${videoId}/${videoId}.jpg`,        
@@ -117,7 +117,7 @@ exports.videoRegister = ((req, res) => {
         }
 
         else {
-            res.send({ message: "Video was registered successfully!" });
+            res.send({ message: "Video was registered successfully!", video });
         }
     });
 

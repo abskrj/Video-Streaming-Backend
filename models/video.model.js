@@ -19,9 +19,8 @@ let VideoSchema = new Schema(
                 type:String
             }
         ],
-        categoryId: {
-            type: Schema.Types.ObjectId,
-            ref: "CATEGORY"
+        category: {
+            type: String
         },
         videoId: {
             type: String,
