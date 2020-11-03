@@ -24,7 +24,7 @@ exports.videoUpload = ((req, res) => {
         fileProperty = files.video.type.split('/');
 
         if (fileProperty[0] != 'video') {
-            res.send({ message: "Upload video only" });
+            res.send({ message: "Not a supported File Format, Upload Video Only" });
         }
         else {
             var oldPath = files.video.path;
@@ -73,7 +73,6 @@ exports.videoUpload = ((req, res) => {
                             .then(function (doc) {
                                 fsExtra.removeSync(directoryName);
                                 console.info(`Deleted ${req.videoId} from uploads folder.`);
-
                             })
                             .catch(function (err) {
                                 if (err) {
@@ -100,7 +99,7 @@ exports.videoUpload = ((req, res) => {
 exports.videoRegister = ((req, res) => {
     const { title, description, videoId, tags, categoryId, userId } = req.body;
 
-    tags = tags.trim();
+    tags = tags.split(" ").join("");
     tags = tags.split(',');
 
     const video = new Video({
