@@ -2,8 +2,7 @@ SAVEDIR="uploads/${1}"
 mkdir -p ${SAVEDIR}
 
 # sudo apt install ffmpeg
-# sudo apt install ffmpeg
-# sudo apt install cjpeg
+# sudo apt install gpac
 
 
 # Check programs
