@@ -94,7 +94,7 @@ exports.videoUpload = ((req, res) => {
 
 
 exports.videoRegister = ((req, res) => {
-    const { title, description, videoId, tags, category, userId } = req.body;
+    const { title, description, videoId, tags, category } = req.body;
 
     let sepTags = tags.split(" ").join("");
     sepTags = tags.split(',');
@@ -105,11 +105,11 @@ exports.videoRegister = ((req, res) => {
         description: description,
         tags: sepTags,
         category: category,
-        owner: userId,
+        owner: req.userId,
         videoUrl: `https://cdn-firestream.s3.ap-south-1.amazonaws.com/videos/${videoId}/${videoId}.mpd`,
         thumbnailUrl: `https://cdn-firestream.s3.ap-south-1.amazonaws.com/videos/${videoId}/${videoId}.jpg`,        
     });
-    
+
     video.save((err, video) => {
         if (err) {
             res.status(500).send({ message: err });

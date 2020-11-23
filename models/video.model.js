@@ -50,9 +50,9 @@ let VideoSchema = new Schema(
             default: 0
         },
         score: {
-            type: Number
-        }      
-
+            type: Number,
+            default: 0
+        }
     },
     { collection: "VIDEO", timestamps: true }
 );
