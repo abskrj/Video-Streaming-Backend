@@ -1,6 +1,7 @@
 const controller = require('../controllers/video.controller');
 const { authJwt, videoMiddlewares } = require('../middlewares');
 const path = require('path');
+let queue = require('express-queue');
 
 const options = {
     useFoldersForFileTypes: false,
@@ -16,7 +17,7 @@ module.exports = function (app) {
         next();
     });
 
-    app.post("/api/video/upload", [authJwt.verifyToken, videoMiddlewares.addVideoId], controller.videoUpload);
+    app.post("/api/video/upload", [queue({ activeLimit: 5, queuedLimit: -1 }), authJwt.verifyToken, videoMiddlewares.addVideoId], controller.videoUpload);
 
     app.post("/api/video/register", [authJwt.verifyToken], controller.videoRegister);
 };
