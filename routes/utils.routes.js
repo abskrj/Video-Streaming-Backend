@@ -13,6 +13,6 @@ module.exports = function (app) {
 
     app.get("/api/video/like/:videoId", authJwt.verifyToken, controller.videoLike);
     app.get("/api/video/dislike/:videoId", authJwt.verifyToken, controller.videoDislike);
-    app.get("/api/video/view/:videoId", controller.videoView);
+    app.get("/api/video/view/:videoId", authJwt.verifyToken, controller.videoView);
     app.get("/api/video/search", authJwt.verifyToken, controller.searchByQuery);
 };
