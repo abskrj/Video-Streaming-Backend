@@ -12,7 +12,7 @@ dotenv.config();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(logger("dev"));
+app.use(logger("combined"));
 app.use(compression());
 
 const mongoConnectOptions = {

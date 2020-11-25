@@ -14,21 +14,21 @@ exports.listByParam = async (req, res) => {
         sortBy = `-${sortBy}`;
     }
 
-    let videos = await Video.find({}, '-_id -score -updatedAt -likes -dislikes').skip(start).limit(limit).sort(sortBy).populate("owner", ["name", "avtarUrl", "profileSlug"]);
+    let videos = await Video.find({}, '-score -updatedAt -likes -dislikes').skip(start).limit(limit).sort(sortBy).populate("owner", ["name", "avtarUrl", "profileSlug"]);
 
     res.send(videos);
 }
 
 exports.listByUser = async (req, res) => {
 
-    let videos = await Video.find({owner: req.userId}, '-_id -score -updatedAt -likes -dislikes').sort('createdAt').populate("owner", ["name", "avtarUrl", "profileSlug"]);
+    let videos = await Video.find({owner: req.userId}, '-score -updatedAt -likes -dislikes').sort('createdAt').populate("owner", ["name", "avtarUrl", "profileSlug"]);
 
     res.send(videos);
 }
 
 exports.listByUserLikes = async (req, res) => {
 
-    let videos = await User.find({_id: req.userId}, 'likedVideos').populate("likedVideos");
+    let videos = await User.find({_id: req.userId}, 'likedVideos').populate({path: "likedVideos", select: '-score -updatedAt -likes -dislikes', populate: {path: "owner", select: 'name avtarUrl profileSlug'} });
 
-    res.send(videos);
+    res.send(videos[0].likedVideos);
 }
