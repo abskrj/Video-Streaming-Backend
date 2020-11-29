@@ -14,4 +14,5 @@ module.exports = function (app) {
     app.get("/api/list/videos", controller.listByParam);
     app.get("/api/list/myvideos", authJwt.verifyToken ,controller.listByUser);
     app.get("/api/list/mylikes", authJwt.verifyToken ,controller.listByUserLikes);
+    app.get("/api/list/this", authJwt.verifyToken ,controller.listByVideoId);
 };

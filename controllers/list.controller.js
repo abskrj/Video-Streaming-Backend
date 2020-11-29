@@ -32,3 +32,10 @@ exports.listByUserLikes = async (req, res) => {
 
     res.send(videos[0].likedVideos);
 }
+
+exports.listByVideoId = async (req, res) => {
+
+    let videos = await Video.findOne({videoId: req.query.vId}, '-score -updatedAt -likes -dislikes').populate("owner", ["name", "avtarUrl", "profileSlug"]);
+
+    res.send(videos);
+}
