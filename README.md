@@ -1,20 +1,9 @@
-# Streaming Backend (Microservice)
+# About Us
 
-### Getting Started
+### This website is made for the demonstration of Video Recommendation System for the Minor Project.
 
-```bash
-git clone https://github.com/abhishekraj272/Video-Streaming-Backend
-
-cd Video-Streaming-Backend
-
-npm install 
-
-npm dev
-
-# or
-
-npm start
-
-```
-
-##### Please don't fork before submission of this project.
+- Abhishek Raj (1804075)
+- Aditi Ananya Das (1804077)
+- Aditya Kumar (1804078)
+- Anusha Chakraborty (1804084)
+- Kumar Piyush (1804102)
