@@ -1,9 +1,5 @@
-# About Us
+# Adaptive Video Streaming Service
 
-### This website is made for the demonstration of Video Recommendation System for the Minor Project.
-
-- Abhishek Raj (1804075)
-- Aditi Ananya Das (1804077)
-- Aditya Kumar (1804078)
-- Anusha Chakraborty (1804084)
-- Kumar Piyush (1804102)
+### Video Processing
+- DASH Protocol is used to break videos in chunks of 7 seconds.
+- DASH JS is used to fetch and play videos from AWS S3.
