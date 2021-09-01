@@ -1,5 +1,8 @@
 # Adaptive Video Streaming Service
 
+Frontend: https://github.com/abhishekraj272/Video-Streaming-Frontend
+Backend: https://github.com/abhishekraj272/Video-Streaming-Backend
+
 ## Tech Used
 - ExpressJS - For APIs
 - MongoDB - For Fast R/W as little to no relation between data's + plus comes with free tier.
