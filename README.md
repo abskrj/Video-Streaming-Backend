@@ -1,6 +1,6 @@
 # Adaptive Video Streaming Service
 
-Frontend: https://github.com/abhishekraj272/Video-Streaming-Frontend
+Frontend: https://github.com/abhishekraj272/Video-Streaming-Frontend  
 Backend: https://github.com/abhishekraj272/Video-Streaming-Backend
 
 ## Tech Used
