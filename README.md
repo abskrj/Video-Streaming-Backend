@@ -1,6 +1,6 @@
 # FIRESTREAM - Adaptive Video Streaming Service
-<img src="![logo 644de09a](https://user-images.githubusercontent.com/71965521/136537187-e0a06281-af41-449d-bd63-c7ece1a85612.png)
-">
+![logo 644de09a](https://user-images.githubusercontent.com/71965521/136795055-4afd3597-8ded-4fb5-981e-fe5296c2d6dc.png)
+
 
 
 FIRESTREAM - https://firestreamz.co/
@@ -21,18 +21,19 @@ Backend: https://github.com/abhishekraj272/Video-Streaming-Backend
 
 
 ### User friendly 
-<img src= "![Screenshot 2021-10-06 225616](https://user-images.githubusercontent.com/71965521/136537418-9a623e6b-c3e2-454c-97b3-03e5d096596e.png)
-">
+
+![Screenshot 2021-10-06 225616](https://user-images.githubusercontent.com/71965521/136795128-ec905709-b6e8-426c-8315-4c1152c95992.png)
+
 
 ### Log-in page 
 
-<img src = "![Screenshot 2021-10-06 225703](https://user-images.githubusercontent.com/71965521/136537468-e0cad2ac-5cb8-41ba-a1c2-f2d82cfb5ccf.png)
-">
+
+![Screenshot 2021-10-06 225703](https://user-images.githubusercontent.com/71965521/136795310-1c4a0f51-666b-4608-a3de-78300355a9b2.png)
 
 ### Simple guided Video Upload page 
 
-<img src ="![Screenshot 2021-10-06 225641](https://user-images.githubusercontent.com/71965521/136537498-659197cd-6c66-427b-b3e4-3f468d9e8150.png)
-">
+![Screenshot 2021-10-06 225641](https://user-images.githubusercontent.com/71965521/136795360-4c0cf0ce-c3af-40e3-b866-9c3a0339957a.png)
+
 
 - Note:- Log-In warning will show , if you are not logged in.
 
